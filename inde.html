@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Porta Galliana - Menu</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold-primary: #d4af37;
+            --gold-light: #f9e297;
+            --dark-bg: #030303;
+            --card-bg-light: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(212, 175, 55, 0.4);
+            --text-light: #e0e0e0;
+            --text-dark: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        /* BACKGROUND */
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #030303 100%);
+            z-index: -2;
+        }
+
+        .glow-overlay {
+            position: fixed;
+            top: -20%; left: -20%;
+            width: 140%; height: 140%;
+            background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+            filter: blur(80px);
+            z-index: -1;
+            animation: glowAnimate 15s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes glowAnimate {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
+            100% { transform: scale(1.05) translate(10px, 10px); opacity: 1; }
+        }
+
+        /* HERO */
+        .hero-section {
+            padding: 40px 20px 30px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .logo {
+            height: 80px;
+            width: auto;
+            max-width: 200px;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: revealH1 1s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        h1 {
+            display: none;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold-light);
+            margin: 0;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: revealH2 1s forwards cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+        }
+
+        @keyframes revealH1 {
+            to { opacity: 1; }
+        }
+        @keyframes revealH2 {
+            to { opacity: 1; }
+        }
+
+        /* FILTER BAR - ORIZZONTALE SCROLLABILE */
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 15px 15px;
+            margin-top: 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .filter-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-btn {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--card-border);
+            color: var(--gold-light);
+            padding: 10px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        .filter-btn:active, .filter-btn.active {
+            background: var(--gold-primary);
+            color: var(--text-dark);
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            border-color: var(--gold-light);
+        }
+
+        /* GRID - MOBILE FIRST */
+        .drink-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 20px 15px;
+            max-width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg-light);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 18px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            animation: cardEnter 0.5s forwards ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes cardEnter {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card:active {
+            transform: scale(0.98);
+            border-color: var(--gold-primary);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            margin: 0 0 8px 0;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--gold-primary);
+            flex-shrink: 0;
+        }
+
+        .ingredients {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* BOTTOM BUTTONS */
+        .bottom-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            gap: 10px;
+            padding: 12px 15px;
+            background: linear-gradient(to top, rgba(3, 3, 3, 0.95), transparent);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+        }
+
+        .review-btn, .call-btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .review-btn {
+            background: var(--gold-primary);
+            color: var(--text-dark);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
+        .review-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+        }
+
+        .call-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gold-light);
+            border: 1px solid var(--card-border);
+        }
+
+        .call-btn:active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(0.95);
+        }
+
+        /* STARS */
+        .star {
+            position: absolute;
+            background: var(--gold-light);
+            border-radius: 50%;
+            animation: twinkle 5s infinite ease-in-out alternate;
+            opacity: 0;
+            pointer-events: none;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* TABLET */
+        @media (min-width: 600px) {
+            .drink-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 25px 20px;
+            }
+        }
+
+        /* TABLET GRANDE */
+        @media (min-width: 900px) {
+            .drink-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+                padding: 35px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="glow-overlay"></div>
+
+    <section class="menu-container">
+        <header class="hero-section">
+            <img id="logo-img" class="logo" src="https://portagalliana.it/wp-content/uploads/2025/10/logo-1-scaled.png" alt="Logo">
+            <h2>L'Arte del Bere</h2>
+            
+            <nav class="filter-bar" id="filter-bar">
+                <button class="filter-btn active" data-filter="all">Tutto</button>
+                <button class="filter-btn" data-filter="caffe">Caffetteria</button>
+                <button class="filter-btn" data-filter="analcolici">Analcolici</button>
+                <button class="filter-btn" data-filter="birre">Birre</button>
+                <button class="filter-btn" data-filter="vini">Vini</button>
+                <button class="filter-btn" data-filter="liquori">Liquori</button>
+                <button class="filter-btn" data-filter="cocktail">Cocktail</button>
+                <button class="filter-btn" data-filter="caraffe">Caraffe</button>
+            </nav>
+        </header>
+
+        <div class="drink-grid" id="grid"></div>
+    </section>
+
+    <div class="bottom-buttons">
+        <button class="review-btn" onclick="openReviews()">⭐ Recensioni</button>
+        <button class="call-btn" onclick="callBar()">📞 Chiama</button>
+    </div>
+
+    <script>
+        const menuData = [
+            // Caffetteria
+            { name: "Caffè Normale", cat: "caffe", price: "1,50€", desc: "Un classico espresso per ogni momento." },
+            { name: "Caffè Corretto", cat: "caffe", price: "2,50€", desc: "Con il tuo distillato preferito." },
+            { name: "Caffè Deca", cat: "caffe", price: "1,50€", desc: "Senza caffeina, sempre delizioso." },
+            { name: "Orzo Piccolo", cat: "caffe", price: "1,50€", desc: "Una bevanda senza caffeina, dal gusto avvolgente." },
+            { name: "Orzo Grande", cat: "caffe", price: "2,00€", desc: "Per chi vuole più gusto." },
+            { name: "Ginseng Piccolo", cat: "caffe", price: "2,00€", desc: "Per una sferzata di energia naturale." },
+            { name: "Ginseng Grande", cat: "caffe", price: "2,50€", desc: "Energy drink naturale." },
+            { name: "Caffè Shakerato", cat: "caffe", price: "4,00€", desc: "Rinfrescante e vellutato." },
+            { name: "Caffè Shakerato Baileys", cat: "caffe", price: "5,00€", desc: "La cremosità del Baileys per un tocco speciale." },
+
+            // Analcolici
+            { name: "Coca Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
+            { name: "Coca Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
+            { name: "Lemon Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
+            { name: "Lemon Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
+            { name: "Tonica Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
+            { name: "Tonica Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
+            { name: "Acqua 0,5L", cat: "analcolici", price: "1,50€", desc: "Acqua naturale o frizzante." },
+            { name: "Acqua 1,0L", cat: "analcolici", price: "3,00€", desc: "Acqua naturale o frizzante." },
+            { name: "Succhi di Frutta", cat: "analcolici", price: "3,50€", desc: "Vari gusti disponibili, freschezza garantita." },
+            { name: "Thè Freddo", cat: "analcolici", price: "3,50€", desc: "Limone o pesca, la scelta è tua." },
+            { name: "Pepsi", cat: "analcolici", price: "3,50€", desc: "Bevanda in bottiglia." },
+            { name: "Pepsi Zero", cat: "analcolici", price: "3,50€", desc: "Senza zucchero." },
+            { name: "Sprite", cat: "analcolici", price: "3,50€", desc: "Bevanda rinfrescante." },
+            { name: "Fanta", cat: "analcolici", price: "3,50€", desc: "Vari gusti colorati." },
+            { name: "Campari Soda", cat: "analcolici", price: "4,00€", desc: "L'aperitivo analcolico italiano per eccellenza." },
+            { name: "Crodino", cat: "analcolici", price: "4,00€", desc: "Amaro analcolico italiano." },
+
+            // Birre
+            { name: "Weissbier Piccola", cat: "birre", price: "4,50€", desc: "Birra di frumento (piccola)." },
+            { name: "Weissbier Media", cat: "birre", price: "7,00€", desc: "Birra di frumento (media)." },
+            { name: "Lowenbrau Piccola", cat: "birre", price: "4,00€", desc: "Birra chiara e dissetante (piccola)." },
+            { name: "Lowenbrau Media", cat: "birre", price: "6,00€", desc: "Birra chiara e dissetante (media)." },
+            { name: "Freeride Piccola", cat: "birre", price: "4,00€", desc: "Birra leggera (piccola)." },
+            { name: "Freeride Media", cat: "birre", price: "6,00€", desc: "Birra leggera (media)." },
+            { name: "Leffe Piccola", cat: "birre", price: "4,50€", desc: "Birra d'abbazia (piccola)." },
+            { name: "Leffe Media", cat: "birre", price: "7,00€", desc: "Birra d'abbazia (media)." },
+            { name: "Forst Analcolica", cat: "birre", price: "5,00€", desc: "Il gusto della birra, senza alcol." },
+            { name: "Forst", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+            { name: "Ceres", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+            { name: "Corona", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+            { name: "Beck's", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+            { name: "Ichnusa Non Filtrata", cat: "birre", price: "6,00€", desc: "La birra sarda dal sapore autentico." },
+
+            // Vini
+            { name: "Calice (Rosso/Bianco)", cat: "vini", price: "6,00€", desc: "Selezioni giornaliere per un momento di piacere." },
+            { name: "Sangiovese", cat: "vini", price: "18,00€", desc: "I classici vini del territorio Romagnolo." },
+            { name: "Passerina", cat: "vini", price: "18,00€", desc: "Vino bianco romagnolo." },
+            { name: "Chianti DOC", cat: "vini", price: "22,00€", desc: "Grandiosi rossi toscani." },
+            { name: "Pinot Grigio", cat: "vini", price: "22,00€", desc: "Bianco del nord Italia." },
+            { name: "Prosecco DOC", cat: "vini", price: "22,00€", desc: "Bollicine italiane, fresche e versatili." },
+            { name: "Gewurztraminer", cat: "vini", price: "24,00€", desc: "Bianco aromatico con note speziate e floreali." },
+            { name: "Moscato Spumante", cat: "vini", price: "20,00€", desc: "Dolce e frizzante, perfetto per brindare." },
+            { name: "Ca Del Bosco", cat: "vini", price: "55,00€", desc: "Le bollicine più prestigiose per celebrare." },
+            { name: "Champagne", cat: "vini", price: "55,00€", desc: "Champagne francese di qualità." },
+
+            // Liquori
+            { name: "Rum Brugal", cat: "liquori", price: "5,00€", desc: "Rum premium." },
+            { name: "Jack Daniel's", cat: "liquori", price: "5,00€", desc: "Whiskey americano." },
+            { name: "Amaro del Capo", cat: "liquori", price: "5,00€", desc: "Amaro calabrese." },
+            { name: "Fernet Branca", cat: "liquori", price: "4,00€", desc: "Amaro italiano classico." },
+            { name: "Jagermeister", cat: "liquori", price: "4,00€", desc: "Liquore tedesco." },
+            { name: "Montenegro", cat: "liquori", price: "4,00€", desc: "Amaro italiano." },
+            { name: "Baileys", cat: "liquori", price: "4,00€", desc: "Liquore alla crema." },
+            { name: "Sambuca", cat: "liquori", price: "4,00€", desc: "Liquore di anice." },
+            { name: "Limoncello", cat: "liquori", price: "4,00€", desc: "Liquore al limone." },
+
+            // Cocktail
+            { name: "Spritz Aperol", cat: "cocktail", price: "7,00€", desc: "L'intramontabile aperitivo veneziano." },
+            { name: "Gin Tonic / Lemon", cat: "cocktail", price: "8,00€", desc: "Classico, rinfrescante, sempre gradito." },
+            { name: "Vodka Redbull", cat: "cocktail", price: "8,00€", desc: "La carica per la tua serata." },
+            { name: "Punch Cubano", cat: "cocktail", price: "9,00€", desc: "Un viaggio ai tropici direttamente a Rimini." },
+            { name: "Mojito", cat: "cocktail", price: "9,00€", desc: "Menta fresca, lime, zucchero di canna, Rum, soda." },
+            { name: "Caipiroska", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con vodka." },
+            { name: "Caipirinha", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con rum." },
+            { name: "Punch", cat: "cocktail", price: "9,00€", desc: "Fruttato e rinfrescante." },
+            { name: "Premium Gin Tonic", cat: "cocktail", price: "10,00€", desc: "Selezione di Gin Premium con tonica superiore." },
+            { name: "Premium Vodka Redbull", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Redbull." },
+            { name: "Premium Vodka Lemon", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Lemon." },
+            { name: "Premium Vodka Tonic", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Tonica." },
+            { name: "Premium Gin Lemon", cat: "cocktail", price: "10,00€", desc: "Gin Premium con Lemon." },
+
+            // Caraffe
+            { name: "Lowenbrau (1 LT)", cat: "caraffe", price: "13,00€", desc: "La birra chiara per eccellenza, da condividere." },
+            { name: "Weissbier (1 LT)", cat: "caraffe", price: "16,00€", desc: "Birra di frumento in formato maxi." },
+            { name: "Leffe (1 LT)", cat: "caraffe", price: "16,00€", desc: "Birra d'abbazia in formato maxi." },
+            { name: "Aperol Spritz (1 LT)", cat: "caraffe", price: "18,00€", desc: "Per condividere il gusto dell'aperitivo con gli amici." },
+            { name: "Coca-Lemon-Tonica (1 LT)", cat: "caraffe", price: "8,50€", desc: "Tutte le tue bevande analcoliche preferite." },
+            { name: "Gin/Vodka Tonic/Lemon (1 LT)", cat: "caraffe", price: "25,00€", desc: "Il tuo distillato preferito in formato party." },
+        ];
+
+        const grid = document.getElementById('grid');
+        const buttons = document.querySelectorAll('.filter-btn');
+        let currentFilter = 'all';
+
+        const getRandom = (min, max) => Math.random() * (max - min) + min;
+
+        function createStars() {
+            const numStars = 30;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = star.style.height = `${getRandom(1, 3)}px`;
+                star.style.top = `${getRandom(0, 100)}%`;
+                star.style.left = `${getRandom(0, 100)}%`;
+                star.style.animationDelay = `${getRandom(0, 5)}s`;
+                document.body.appendChild(star);
+            }
+        }
+        createStars();
+
+        function renderMenu(filter = 'all') {
+            grid.innerHTML = "";
+            currentFilter = filter;
+            const filtered = filter === 'all' 
+                ? menuData 
+                : menuData.filter(item => item.cat === filter);
+
+            filtered.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.animationDelay = `${index * 0.05}s`;
+                
+                card.innerHTML = `
+                    <div class="card-header">
+                        <h3>${item.name}</h3>
+                        <span class="price">${item.price}</span>
+                    </div>
+                    <p class="ingredients">${item.desc}</p>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                renderMenu(btn.dataset.filter);
+            });
+        });
+
+        function openReviews() {
+            window.open('https://www.google.com/maps/place/Porta+Galliana/@44.0666,12.5756,15z/data=!4m6!3m5!1s0x132ca3e3e3e3e3e3:0x123abc!8m2!3d44.0666!4d12.5756!16s', '_blank');
+        }
+
+        function callBar() {
+            window.location.href = 'tel:+393334445566';
+        }
+
+        renderMenu();
+    </script>
+</body>
+</html>
