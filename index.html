@@ -293,15 +293,15 @@
             <h2>L'Arte del Bere</h2>
             
             <nav class="filter-bar" id="filter-bar">
-                <button class="filter-btn active" data-filter="all">Tutto</button>
-                <button class="filter-btn" data-filter="caffe">Caffetteria</button>
-                <button class="filter-btn" data-filter="analcolici">Analcolici</button>
-                <button class="filter-btn" data-filter="birre">Birre</button>
-                <button class="filter-btn" data-filter="vini">Vini</button>
-                <button class="filter-btn" data-filter="liquori">Liquori</button>
-                <button class="filter-btn" data-filter="cocktail">Cocktail</button>
-                <button class="filter-btn" data-filter="caraffe">Caraffe</button>
-            </nav>
+    <button class="filter-btn active" data-filter="all">Tutto</button>
+    <button class="filter-btn" data-filter="caraffe">Caraffe</button>
+    <button class="filter-btn" data-filter="cocktail">Cocktail</button>
+    <button class="filter-btn" data-filter="vini">Vini</button>
+    <button class="filter-btn" data-filter="birre">Birre</button>
+    <button class="filter-btn" data-filter="liquori">Liquori</button>
+    <button class="filter-btn" data-filter="analcolici">Analcolici</button>
+    <button class="filter-btn" data-filter="caffe">Caffetteria</button>
+</nav>
         </header>
 
         <div class="drink-grid" id="grid"></div>
@@ -314,17 +314,21 @@
 
     <script>
         const menuData = [
-            // Caffetteria
-            { name: "Caffè Normale", cat: "caffe", price: "1,50€", desc: "Un classico espresso per ogni momento." },
-            { name: "Caffè Corretto", cat: "caffe", price: "2,50€", desc: "Con il tuo distillato preferito." },
-            { name: "Caffè Deca", cat: "caffe", price: "1,50€", desc: "Senza caffeina, sempre delizioso." },
-            { name: "Orzo Piccolo", cat: "caffe", price: "1,50€", desc: "Una bevanda senza caffeina, dal gusto avvolgente." },
-            { name: "Orzo Grande", cat: "caffe", price: "2,00€", desc: "Per chi vuole più gusto." },
-            { name: "Ginseng Piccolo", cat: "caffe", price: "2,00€", desc: "Per una sferzata di energia naturale." },
-            { name: "Ginseng Grande", cat: "caffe", price: "2,50€", desc: "Energy drink naturale." },
-            { name: "Caffè Shakerato", cat: "caffe", price: "4,00€", desc: "Rinfrescante e vellutato." },
-            { name: "Caffè Shakerato Baileys", cat: "caffe", price: "5,00€", desc: "La cremosità del Baileys per un tocco speciale." },
-
+               // Cocktail
+            { name: "Spritz Aperol", cat: "cocktail", price: "7,00€", desc: "L'intramontabile aperitivo veneziano." },
+            { name: "Gin Tonic / Lemon", cat: "cocktail", price: "8,00€", desc: "Classico, rinfrescante, sempre gradito." },
+            { name: "Vodka Redbull", cat: "cocktail", price: "8,00€", desc: "La carica per la tua serata." },
+            { name: "Punch Cubano", cat: "cocktail", price: "9,00€", desc: "Un viaggio ai tropici direttamente a Rimini." },
+            { name: "Mojito", cat: "cocktail", price: "9,00€", desc: "Menta fresca, lime, zucchero di canna, Rum, soda." },
+            { name: "Caipiroska", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con vodka." },
+            { name: "Caipirinha", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con rum." },
+            { name: "Punch", cat: "cocktail", price: "9,00€", desc: "Fruttato e rinfrescante." },
+            { name: "Premium Gin Tonic", cat: "cocktail", price: "10,00€", desc: "Selezione di Gin Premium con tonica superiore." },
+            { name: "Premium Vodka Redbull", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Redbull." },
+            { name: "Premium Vodka Lemon", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Lemon." },
+            { name: "Premium Vodka Tonic", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Tonica." },
+            { name: "Premium Gin Lemon", cat: "cocktail", price: "10,00€", desc: "Gin Premium con Lemon." },
+            
             // Analcolici
             { name: "Coca Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
             { name: "Coca Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
@@ -381,20 +385,7 @@
             { name: "Sambuca", cat: "liquori", price: "4,00€", desc: "Liquore di anice." },
             { name: "Limoncello", cat: "liquori", price: "4,00€", desc: "Liquore al limone." },
 
-            // Cocktail
-            { name: "Spritz Aperol", cat: "cocktail", price: "7,00€", desc: "L'intramontabile aperitivo veneziano." },
-            { name: "Gin Tonic / Lemon", cat: "cocktail", price: "8,00€", desc: "Classico, rinfrescante, sempre gradito." },
-            { name: "Vodka Redbull", cat: "cocktail", price: "8,00€", desc: "La carica per la tua serata." },
-            { name: "Punch Cubano", cat: "cocktail", price: "9,00€", desc: "Un viaggio ai tropici direttamente a Rimini." },
-            { name: "Mojito", cat: "cocktail", price: "9,00€", desc: "Menta fresca, lime, zucchero di canna, Rum, soda." },
-            { name: "Caipiroska", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con vodka." },
-            { name: "Caipirinha", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con rum." },
-            { name: "Punch", cat: "cocktail", price: "9,00€", desc: "Fruttato e rinfrescante." },
-            { name: "Premium Gin Tonic", cat: "cocktail", price: "10,00€", desc: "Selezione di Gin Premium con tonica superiore." },
-            { name: "Premium Vodka Redbull", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Redbull." },
-            { name: "Premium Vodka Lemon", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Lemon." },
-            { name: "Premium Vodka Tonic", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Tonica." },
-            { name: "Premium Gin Lemon", cat: "cocktail", price: "10,00€", desc: "Gin Premium con Lemon." },
+          
 
             // Caraffe
             { name: "Lowenbrau (1 LT)", cat: "caraffe", price: "13,00€", desc: "La birra chiara per eccellenza, da condividere." },
@@ -403,6 +394,18 @@
             { name: "Aperol Spritz (1 LT)", cat: "caraffe", price: "18,00€", desc: "Per condividere il gusto dell'aperitivo con gli amici." },
             { name: "Coca-Lemon-Tonica (1 LT)", cat: "caraffe", price: "8,50€", desc: "Tutte le tue bevande analcoliche preferite." },
             { name: "Gin/Vodka Tonic/Lemon (1 LT)", cat: "caraffe", price: "25,00€", desc: "Il tuo distillato preferito in formato party." },
+        
+            // Caffetteria
+            { name: "Caffè Normale", cat: "caffe", price: "1,50€", desc: "Un classico espresso per ogni momento." },
+            { name: "Caffè Corretto", cat: "caffe", price: "2,50€", desc: "Con il tuo distillato preferito." },
+            { name: "Caffè Deca", cat: "caffe", price: "1,50€", desc: "Senza caffeina, sempre delizioso." },
+            { name: "Orzo Piccolo", cat: "caffe", price: "1,50€", desc: "Una bevanda senza caffeina, dal gusto avvolgente." },
+            { name: "Orzo Grande", cat: "caffe", price: "2,00€", desc: "Per chi vuole più gusto." },
+            { name: "Ginseng Piccolo", cat: "caffe", price: "2,00€", desc: "Per una sferzata di energia naturale." },
+            { name: "Ginseng Grande", cat: "caffe", price: "2,50€", desc: "Energy drink naturale." },
+            { name: "Caffè Shakerato", cat: "caffe", price: "4,00€", desc: "Rinfrescante e vellutato." },
+            { name: "Caffè Shakerato Baileys", cat: "caffe", price: "5,00€", desc: "La cremosità del Baileys per un tocco speciale." },
+
         ];
 
         const grid = document.getElementById('grid');
