@@ -313,161 +313,160 @@
     </div>
 
     <script>
-        const menuData = [
-               // Cocktail
-            { name: "Spritz Aperol", cat: "cocktail", price: "7,00€", desc: "L'intramontabile aperitivo veneziano." },
-            { name: "Gin Tonic / Lemon", cat: "cocktail", price: "8,00€", desc: "Classico, rinfrescante, sempre gradito." },
-            { name: "Vodka Redbull", cat: "cocktail", price: "8,00€", desc: "La carica per la tua serata." },
-            { name: "Punch Cubano", cat: "cocktail", price: "9,00€", desc: "Un viaggio ai tropici direttamente a Rimini." },
-            { name: "Mojito", cat: "cocktail", price: "9,00€", desc: "Menta fresca, lime, zucchero di canna, Rum, soda." },
-            { name: "Caipiroska", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con vodka." },
-            { name: "Caipirinha", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con rum." },
-            { name: "Punch", cat: "cocktail", price: "9,00€", desc: "Fruttato e rinfrescante." },
-            { name: "Premium Gin Tonic", cat: "cocktail", price: "10,00€", desc: "Selezione di Gin Premium con tonica superiore." },
-            { name: "Premium Vodka Redbull", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Redbull." },
-            { name: "Premium Vodka Lemon", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Lemon." },
-            { name: "Premium Vodka Tonic", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Tonica." },
-            { name: "Premium Gin Lemon", cat: "cocktail", price: "10,00€", desc: "Gin Premium con Lemon." },
+    const menuData = [
+        // --- CARAFFE (Prime scelte, impatto alto) ---
+        { name: "Gin/Vodka Tonic/Lemon (1 LT)", cat: "caraffe", price: "25,00€", desc: "Il tuo distillato preferito in formato party." },
+        { name: "Aperol Spritz (1 LT)", cat: "caraffe", price: "18,00€", desc: "Per condividere il gusto dell'aperitivo con gli amici." },
+        { name: "Weissbier (1 LT)", cat: "caraffe", price: "16,00€", desc: "Birra di frumento in formato maxi." },
+        { name: "Leffe (1 LT)", cat: "caraffe", price: "16,00€", desc: "Birra d'abbazia in formato maxi." },
+        { name: "Lowenbrau (1 LT)", cat: "caraffe", price: "13,00€", desc: "La birra chiara per eccellenza, da condividere." },
+        { name: "Coca-Lemon-Tonica (1 LT)", cat: "caraffe", price: "8,50€", desc: "Tutte le tue bevande analcoliche preferite." },
+
+        // --- VINI ---
+        { name: "Ca Del Bosco", cat: "vini", price: "55,00€", desc: "Le bollicine più prestigiose per celebrare." },
+        { name: "Champagne", cat: "vini", price: "55,00€", desc: "Champagne francese di qualità." },
+        { name: "Gewurztraminer", cat: "vini", price: "24,00€", desc: "Bianco aromatico con note speziate e floreali." },
+        { name: "Chianti DOC", cat: "vini", price: "22,00€", desc: "Grandiosi rossi toscani." },
+        { name: "Pinot Grigio", cat: "vini", price: "22,00€", desc: "Bianco del nord Italia." },
+        { name: "Prosecco DOC", cat: "vini", price: "22,00€", desc: "Bollicine italiane, fresche e versatili." },
+        { name: "Moscato Spumante", cat: "vini", price: "20,00€", desc: "Dolce e frizzante, perfetto per brindare." },
+        { name: "Sangiovese", cat: "vini", price: "18,00€", desc: "I classici vini del territorio Romagnolo." },
+        { name: "Passerina", cat: "vini", price: "18,00€", desc: "Vino bianco romagnolo." },
+        { name: "Calice (Rosso/Bianco)", cat: "vini", price: "6,00€", desc: "Selezioni giornaliere per un momento di piacere." },
+
+        // --- COCKTAIL ---
+        { name: "Premium Gin Tonic", cat: "cocktail", price: "10,00€", desc: "Selezione di Gin Premium con tonica superiore." },
+        { name: "Premium Vodka Redbull", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Redbull." },
+        { name: "Premium Vodka Lemon", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Lemon." },
+        { name: "Premium Vodka Tonic", cat: "cocktail", price: "10,00€", desc: "Vodka Premium con Tonica." },
+        { name: "Premium Gin Lemon", cat: "cocktail", price: "10,00€", desc: "Gin Premium con Lemon." },
+        { name: "Punch Cubano", cat: "cocktail", price: "9,00€", desc: "Un viaggio ai tropici direttamente a Rimini." },
+        { name: "Mojito", cat: "cocktail", price: "9,00€", desc: "Menta fresca, lime, zucchero di canna, Rum, soda." },
+        { name: "Caipiroska", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con vodka." },
+        { name: "Caipirinha", cat: "cocktail", price: "9,00€", desc: "Pestato iconico con rum." },
+        { name: "Punch", cat: "cocktail", price: "9,00€", desc: "Fruttato e rinfrescante." },
+        { name: "Gin Tonic / Lemon", cat: "cocktail", price: "8,00€", desc: "Classico, rinfrescante, sempre gradito." },
+        { name: "Vodka Redbull", cat: "cocktail", price: "8,00€", desc: "La carica per la tua serata." },
+        { name: "Spritz Aperol", cat: "cocktail", price: "7,00€", desc: "L'intramontabile aperitivo veneziano." },
+
+        // --- BIRRE ---
+        { name: "Weissbier Media", cat: "birre", price: "7,00€", desc: "Birra di frumento (media)." },
+        { name: "Leffe Media", cat: "birre", price: "7,00€", desc: "Birra d'abbazia (media)." },
+        { name: "Lowenbrau Media", cat: "birre", price: "6,00€", desc: "Birra chiara e dissetante (media)." },
+        { name: "Freeride Media", cat: "birre", price: "6,00€", desc: "Birra leggera (media)." },
+        { name: "Forst", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+        { name: "Ceres", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+        { name: "Corona", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+        { name: "Beck's", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
+        { name: "Ichnusa Non Filtrata", cat: "birre", price: "6,00€", desc: "La birra sarda dal sapore autentico." },
+        { name: "Forst Analcolica", cat: "birre", price: "5,00€", desc: "Il gusto della birra, senza alcol." },
+        { name: "Weissbier Piccola", cat: "birre", price: "4,50€", desc: "Birra di frumento (piccola)." },
+        { name: "Leffe Piccola", cat: "birre", price: "4,50€", desc: "Birra d'abbazia (piccola)." },
+        { name: "Lowenbrau Piccola", cat: "birre", price: "4,00€", desc: "Birra chiara e dissetante (piccola)." },
+        { name: "Freeride Piccola", cat: "birre", price: "4,00€", desc: "Birra leggera (piccola)." },
+
+        // --- LIQUORI ---
+        { name: "Rum Brugal", cat: "liquori", price: "5,00€", desc: "Rum premium." },
+        { name: "Jack Daniel's", cat: "liquori", price: "5,00€", desc: "Whiskey americano." },
+        { name: "Amaro del Capo", cat: "liquori", price: "5,00€", desc: "Amaro calabrese." },
+        { name: "Fernet Branca", cat: "liquori", price: "4,00€", desc: "Amaro italiano classico." },
+        { name: "Jagermeister", cat: "liquori", price: "4,00€", desc: "Liquore tedesco." },
+        { name: "Montenegro", cat: "liquori", price: "4,00€", desc: "Amaro italiano." },
+        { name: "Baileys", cat: "liquori", price: "4,00€", desc: "Liquore alla crema." },
+        { name: "Sambuca", cat: "liquori", price: "4,00€", desc: "Liquore di anice." },
+        { name: "Limoncello", cat: "liquori", price: "4,00€", desc: "Liquore al limone." },
+
+        // --- ANALCOLICI ---
+        { name: "Campari Soda", cat: "analcolici", price: "4,00€", desc: "L'aperitivo analcolico italiano per eccellenza." },
+        { name: "Crodino", cat: "analcolici", price: "4,00€", desc: "Amaro analcolico italiano." },
+        { name: "Coca Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
+        { name: "Lemon Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
+        { name: "Tonica Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
+        { name: "Succhi di Frutta", cat: "analcolici", price: "3,50€", desc: "Vari gusti disponibili, freschezza garantita." },
+        { name: "Thè Freddo", cat: "analcolici", price: "3,50€", desc: "Limone o pesca, la scelta è tua." },
+        { name: "Pepsi", cat: "analcolici", price: "3,50€", desc: "Bevanda in bottiglia." },
+        { name: "Pepsi Zero", cat: "analcolici", price: "3,50€", desc: "Senza zucchero." },
+        { name: "Sprite", cat: "analcolici", price: "3,50€", desc: "Bevanda rinfrescante." },
+        { name: "Fanta", cat: "analcolici", price: "3,50€", desc: "Vari gusti colorati." },
+        { name: "Coca Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
+        { name: "Lemon Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
+        { name: "Tonica Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
+        { name: "Acqua 1,0L", cat: "analcolici", price: "3,00€", desc: "Acqua naturale o frizzante." },
+
+        // --- CAFFETTERIA (In fondo) ---
+        { name: "Caffè Shakerato Baileys", cat: "caffe", price: "5,00€", desc: "La cremosità del Baileys per un tocco speciale." },
+        { name: "Caffè Shakerato", cat: "caffe", price: "4,00€", desc: "Rinfrescante e vellutato." },
+        { name: "Caffè Corretto", cat: "caffe", price: "2,50€", desc: "Con il tuo distillato preferito." },
+        { name: "Ginseng Grande", cat: "caffe", price: "2,50€", desc: "Energy drink naturale." },
+        { name: "Orzo Grande", cat: "caffe", price: "2,00€", desc: "Per chi vuole più gusto." },
+        { name: "Ginseng Piccolo", cat: "caffe", price: "2,00€", desc: "Per una sferzata di energia naturale." },
+        { name: "Caffè Normale", cat: "caffe", price: "1,50€", desc: "Un classico espresso per ogni momento." },
+        { name: "Caffè Deca", cat: "caffe", price: "1,50€", desc: "Senza caffeina, sempre delizioso." },
+        { name: "Orzo Piccolo", cat: "caffe", price: "1,50€", desc: "Una bevanda senza caffeina, dal gusto avvolgente." }
+    ];
+
+    const grid = document.getElementById('grid');
+    const buttons = document.querySelectorAll('.filter-btn');
+    let currentFilter = 'all';
+
+    const getRandom = (min, max) => Math.random() * (max - min) + min;
+
+    function createStars() {
+        const numStars = 30;
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = `${getRandom(1, 3)}px`;
+            star.style.top = `${getRandom(0, 100)}%`;
+            star.style.left = `${getRandom(0, 100)}%`;
+            star.style.animationDelay = `${getRandom(0, 5)}s`;
+            document.body.appendChild(star);
+        }
+    }
+    createStars();
+
+    function renderMenu(filter = 'all') {
+        grid.innerHTML = "";
+        currentFilter = filter;
+        const filtered = filter === 'all' 
+            ? menuData 
+            : menuData.filter(item => item.cat === filter);
+
+        filtered.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.style.animationDelay = `${index * 0.05}s`;
             
-            // Analcolici
-            { name: "Coca Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
-            { name: "Coca Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
-            { name: "Lemon Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
-            { name: "Lemon Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
-            { name: "Tonica Piccola", cat: "analcolici", price: "3,00€", desc: "Bevanda alla spina." },
-            { name: "Tonica Media", cat: "analcolici", price: "4,00€", desc: "Bevanda alla spina." },
-            { name: "Acqua 1,0L", cat: "analcolici", price: "3,00€", desc: "Acqua naturale o frizzante." },
-            { name: "Succhi di Frutta", cat: "analcolici", price: "3,50€", desc: "Vari gusti disponibili, freschezza garantita." },
-            { name: "Thè Freddo", cat: "analcolici", price: "3,50€", desc: "Limone o pesca, la scelta è tua." },
-            { name: "Pepsi", cat: "analcolici", price: "3,50€", desc: "Bevanda in bottiglia." },
-            { name: "Pepsi Zero", cat: "analcolici", price: "3,50€", desc: "Senza zucchero." },
-            { name: "Sprite", cat: "analcolici", price: "3,50€", desc: "Bevanda rinfrescante." },
-            { name: "Fanta", cat: "analcolici", price: "3,50€", desc: "Vari gusti colorati." },
-            { name: "Campari Soda", cat: "analcolici", price: "4,00€", desc: "L'aperitivo analcolico italiano per eccellenza." },
-            { name: "Crodino", cat: "analcolici", price: "4,00€", desc: "Amaro analcolico italiano." },
-
-            // Birre
-            { name: "Weissbier Piccola", cat: "birre", price: "4,50€", desc: "Birra di frumento (piccola)." },
-            { name: "Weissbier Media", cat: "birre", price: "7,00€", desc: "Birra di frumento (media)." },
-            { name: "Lowenbrau Piccola", cat: "birre", price: "4,00€", desc: "Birra chiara e dissetante (piccola)." },
-            { name: "Lowenbrau Media", cat: "birre", price: "6,00€", desc: "Birra chiara e dissetante (media)." },
-            { name: "Freeride Piccola", cat: "birre", price: "4,00€", desc: "Birra leggera (piccola)." },
-            { name: "Freeride Media", cat: "birre", price: "6,00€", desc: "Birra leggera (media)." },
-            { name: "Leffe Piccola", cat: "birre", price: "4,50€", desc: "Birra d'abbazia (piccola)." },
-            { name: "Leffe Media", cat: "birre", price: "7,00€", desc: "Birra d'abbazia (media)." },
-            { name: "Forst Analcolica", cat: "birre", price: "5,00€", desc: "Il gusto della birra, senza alcol." },
-            { name: "Forst", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
-            { name: "Ceres", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
-            { name: "Corona", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
-            { name: "Beck's", cat: "birre", price: "6,00€", desc: "Birra in bottiglia." },
-            { name: "Ichnusa Non Filtrata", cat: "birre", price: "6,00€", desc: "La birra sarda dal sapore autentico." },
-
-            // Vini
-            { name: "Calice (Rosso/Bianco)", cat: "vini", price: "6,00€", desc: "Selezioni giornaliere per un momento di piacere." },
-            { name: "Sangiovese", cat: "vini", price: "18,00€", desc: "I classici vini del territorio Romagnolo." },
-            { name: "Passerina", cat: "vini", price: "18,00€", desc: "Vino bianco romagnolo." },
-            { name: "Chianti DOC", cat: "vini", price: "22,00€", desc: "Grandiosi rossi toscani." },
-            { name: "Pinot Grigio", cat: "vini", price: "22,00€", desc: "Bianco del nord Italia." },
-            { name: "Prosecco DOC", cat: "vini", price: "22,00€", desc: "Bollicine italiane, fresche e versatili." },
-            { name: "Gewurztraminer", cat: "vini", price: "24,00€", desc: "Bianco aromatico con note speziate e floreali." },
-            { name: "Moscato Spumante", cat: "vini", price: "20,00€", desc: "Dolce e frizzante, perfetto per brindare." },
-            { name: "Ca Del Bosco", cat: "vini", price: "55,00€", desc: "Le bollicine più prestigiose per celebrare." },
-            { name: "Champagne", cat: "vini", price: "55,00€", desc: "Champagne francese di qualità." },
-
-            // Liquori
-            { name: "Rum Brugal", cat: "liquori", price: "5,00€", desc: "Rum premium." },
-            { name: "Jack Daniel's", cat: "liquori", price: "5,00€", desc: "Whiskey americano." },
-            { name: "Amaro del Capo", cat: "liquori", price: "5,00€", desc: "Amaro calabrese." },
-            { name: "Fernet Branca", cat: "liquori", price: "4,00€", desc: "Amaro italiano classico." },
-            { name: "Jagermeister", cat: "liquori", price: "4,00€", desc: "Liquore tedesco." },
-            { name: "Montenegro", cat: "liquori", price: "4,00€", desc: "Amaro italiano." },
-            { name: "Baileys", cat: "liquori", price: "4,00€", desc: "Liquore alla crema." },
-            { name: "Sambuca", cat: "liquori", price: "4,00€", desc: "Liquore di anice." },
-            { name: "Limoncello", cat: "liquori", price: "4,00€", desc: "Liquore al limone." },
-
-          
-
-            // Caraffe
-            { name: "Lowenbrau (1 LT)", cat: "caraffe", price: "13,00€", desc: "La birra chiara per eccellenza, da condividere." },
-            { name: "Weissbier (1 LT)", cat: "caraffe", price: "16,00€", desc: "Birra di frumento in formato maxi." },
-            { name: "Leffe (1 LT)", cat: "caraffe", price: "16,00€", desc: "Birra d'abbazia in formato maxi." },
-            { name: "Aperol Spritz (1 LT)", cat: "caraffe", price: "18,00€", desc: "Per condividere il gusto dell'aperitivo con gli amici." },
-            { name: "Coca-Lemon-Tonica (1 LT)", cat: "caraffe", price: "8,50€", desc: "Tutte le tue bevande analcoliche preferite." },
-            { name: "Gin/Vodka Tonic/Lemon (1 LT)", cat: "caraffe", price: "25,00€", desc: "Il tuo distillato preferito in formato party." },
-        
-            // Caffetteria
-            { name: "Caffè Normale", cat: "caffe", price: "1,50€", desc: "Un classico espresso per ogni momento." },
-            { name: "Caffè Corretto", cat: "caffe", price: "2,50€", desc: "Con il tuo distillato preferito." },
-            { name: "Caffè Deca", cat: "caffe", price: "1,50€", desc: "Senza caffeina, sempre delizioso." },
-            { name: "Orzo Piccolo", cat: "caffe", price: "1,50€", desc: "Una bevanda senza caffeina, dal gusto avvolgente." },
-            { name: "Orzo Grande", cat: "caffe", price: "2,00€", desc: "Per chi vuole più gusto." },
-            { name: "Ginseng Piccolo", cat: "caffe", price: "2,00€", desc: "Per una sferzata di energia naturale." },
-            { name: "Ginseng Grande", cat: "caffe", price: "2,50€", desc: "Energy drink naturale." },
-            { name: "Caffè Shakerato", cat: "caffe", price: "4,00€", desc: "Rinfrescante e vellutato." },
-            { name: "Caffè Shakerato Baileys", cat: "caffe", price: "5,00€", desc: "La cremosità del Baileys per un tocco speciale." },
-
-        ];
-
-        const grid = document.getElementById('grid');
-        const buttons = document.querySelectorAll('.filter-btn');
-        let currentFilter = 'all';
-
-        const getRandom = (min, max) => Math.random() * (max - min) + min;
-
-        function createStars() {
-            const numStars = 30;
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = star.style.height = `${getRandom(1, 3)}px`;
-                star.style.top = `${getRandom(0, 100)}%`;
-                star.style.left = `${getRandom(0, 100)}%`;
-                star.style.animationDelay = `${getRandom(0, 5)}s`;
-                document.body.appendChild(star);
-            }
-        }
-        createStars();
-
-        function renderMenu(filter = 'all') {
-            grid.innerHTML = "";
-            currentFilter = filter;
-            const filtered = filter === 'all' 
-                ? menuData 
-                : menuData.filter(item => item.cat === filter);
-
-            filtered.forEach((item, index) => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.style.animationDelay = `${index * 0.05}s`;
-                
-                card.innerHTML = `
-                    <div class="card-header">
-                        <h3>${item.name}</h3>
-                        <span class="price">${item.price}</span>
-                    </div>
-                    <p class="ingredients">${item.desc}</p>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelector('.filter-btn.active').classList.remove('active');
-                btn.classList.add('active');
-                renderMenu(btn.dataset.filter);
-            });
+            card.innerHTML = `
+                <div class="card-header">
+                    <h3>${item.name}</h3>
+                    <span class="price">${item.price}</span>
+                </div>
+                <p class="ingredients">${item.desc}</p>
+            `;
+            grid.appendChild(card);
         });
+    }
 
-        function openReviews() {
-            window.open('https://www.google.com/search?sca_esv=04d368c2d7c05ade&rlz=1CDGOYI_enIT1173IT1173&hl=it&sxsrf=ANbL-n4hrS-zMvx_Su8hymVoC-sBdlL9Dw:1768651036022&q=recensioni+di+porta+galliana+-+club+primo+piano+(pub+-+ristorante)+rimini&uds=ALYpb_ncDc7jTlmw6Mmq7NjuX5c-6c8dHR9MPuMj1YvrykHRdFzIh7GYuIg7CyStx8NfC0AkiFvBs74fli9q2QAoaCV0Szy_WJ2YU-zduLD8L6V599M97jig5Badbimp9MlClpCg7mU-gdo94vtPsabAS06e6KWr-XiShet6bzpKuKoWWYP5bf44FpTxa6MiFymkEnyNLnKGSYg5OqCW0uYt0F8PNKRnY0LARFzRbD0srkN_7zq1514&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qObToxTOVKtNjv9P_EQfsQQyIKSj1EBShg4ZIPUo7ggDm1pOn9_phGh-jkmTKRAJqOZahGZWJwx81d6j-eESUdikXu72MBuS-tQDVnZ-WDMebeKQeUja_AN0GCelejeLDlHvvstwu4k5UgBHN94RQvoilOHyycLehQ9NCWgOCmtl0JnU2Kg%3D%3D&sa=X&ved=2ahUKEwjagu_FwpKSAxVVgf0HHYFNE8YQxKsJKAN6BAgxEAE&ictx=1', '_blank');
-        }
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelector('.filter-btn.active').classList.remove('active');
+            btn.classList.add('active');
+            renderMenu(btn.dataset.filter);
+            // Opzionale: scrolla verso l'alto quando si cambia categoria
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
 
-        function callBar() {
-            window.location.href = 'https://www.portagalliana-clubprimopiano.com';
-        }
+    function openReviews() {
+        window.open('https://www.google.com/search?q=recensioni+di+porta+galliana', '_blank');
+    }
 
-        renderMenu();
-    </script>
+    function callBar() {
+        window.location.href = 'https://www.portagalliana-clubprimopiano.com';
+    }
+
+    renderMenu();
+</script>
 </body>
 </html>
